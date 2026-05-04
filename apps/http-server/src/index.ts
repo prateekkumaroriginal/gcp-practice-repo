@@ -1,5 +1,5 @@
 import express from "express";
-import { prisma } from "@gcp-turborepo/prisma";
+import { prisma } from "@gcp-turborepo/prisma/client";
 
 const app = express();
 app.use(express.json());
