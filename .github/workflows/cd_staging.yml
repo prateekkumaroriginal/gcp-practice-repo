@@ -11,7 +11,7 @@ jobs:
     
     steps:
       - run: |
-          echo {{ secrets.SSH_PRIVATE_KEY_STAGING }} &> ~/ssh_key
+          echo "${{ secrets.SSH_PRIVATE_KEY_STAGING }}" &> ~/ssh_key
           ssh -i ~/ssh_key prateekkumar@34.142.150.98
           cd gcp-practice-repo/ && git pull
           pnpm install
