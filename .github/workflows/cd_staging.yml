@@ -5,6 +5,7 @@ on:
       - main
 
 jobs:
+  uses: ubuntu-latest
   redploy_everything:
     name: Deploying everything to the staging cluster
     
