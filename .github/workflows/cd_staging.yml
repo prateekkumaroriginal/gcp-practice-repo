@@ -12,7 +12,8 @@ jobs:
     steps:
       - run: |
           echo "${{ secrets.SSH_PRIVATE_KEY_STAGING }}" &> ~/ssh_key
-          mkdir ~/.ssh
+          chmod 600 ~/ssh_key
+          mkdir -p ~/.ssh
           echo "${{ secrets.KNOWN_HOSTS }}" &> ~/.ssh/known_hosts 
           ssh -i ~/ssh_key prateekkumar@34.142.150.98
           cd gcp-practice-repo/ && git pull
