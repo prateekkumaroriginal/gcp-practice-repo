@@ -10,13 +10,13 @@ jobs:
     name: Deploying everything to the staging cluster
     
     steps:
-      - name: SSH into the VM
-      - run: |
-          echo {{ secrets.SSH_PRIVATE_KEY_STAGING }} &> ~/ssh_key
-          ssh -i ~/ssh_key prateekkumar@34.142.150.98
-          cd gcp-practice-repo/ && git pull
-          pnpm install
-          pnpm build
-          pm2 restart fe-server
-          pm2 restart ws-server
-          pm2 restart http-server
+      name: SSH into the VM
+      run: |
+        echo {{ secrets.SSH_PRIVATE_KEY_STAGING }} &> ~/ssh_key
+        ssh -i ~/ssh_key prateekkumar@34.142.150.98
+        cd gcp-practice-repo/ && git pull
+        pnpm install
+        pnpm build
+        pm2 restart fe-server
+        pm2 restart ws-server
+        pm2 restart http-server
