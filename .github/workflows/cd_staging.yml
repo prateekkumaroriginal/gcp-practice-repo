@@ -15,7 +15,7 @@ jobs:
           chmod 600 ~/ssh_key
           mkdir -p ~/.ssh
           echo "${{ secrets.KNOWN_HOSTS }}" &> ~/.ssh/known_hosts 
-          ssh -i ~/ssh_key prateekkumar@34.142.150.98
+          ssh -i ~/ssh_key prate@35.232.208.97
           cd gcp-practice-repo/ && git pull
           pnpm install
           pnpm build
