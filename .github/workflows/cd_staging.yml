@@ -15,12 +15,4 @@ jobs:
           chmod 600 ~/ssh_key
           mkdir -p ~/.ssh
           echo "${{ secrets.KNOWN_HOSTS }}" &> ~/.ssh/known_hosts 
-          ssh -i ~/ssh_key prate@35.232.208.97
-          pwd
-          ls
-          cd gcp-practice-repo/ && git pull
-          pnpm install
-          pnpm build
-          pm2 restart fe-server
-          pm2 restart ws-server
-          pm2 restart http-server
+          ssh -i ~/ssh_key prate@35.232.208.97 -t "cd gcp-practice-repo/ && git pull && pnpm install && pnpm build && pm2 restart fe-server && pm2 restart ws-server && pm2 restart http-server"
