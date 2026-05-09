@@ -16,10 +16,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.KNOWN_HOSTS }}" &> ~/.ssh/known_hosts 
           ssh -i ~/ssh_key prate@35.232.208.97 -t "
-            export PNPM_HOME=\"\$HOME/.local/share/pnpm\"
-            export PATH=\"\$PNPM_HOME:\$PATH\"
-
-            [ -f ~/.bashrc ] && source ~/.bashrc
+            export NVM_DIR=\"\$HOME/.nvm\"
+            [ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"
 
             cd gcp-practice-repo/ &&
             git pull &&
